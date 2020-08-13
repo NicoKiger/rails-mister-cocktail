@@ -8,14 +8,31 @@
 
 require 'open-uri'
 require 'json'
+require 'faker'
 
-url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+Cocktail.destroy_all
+Dose.destroy_all
+Ingredient.destroy_all
 
-data = JSON.parse(open(url).string)
+15.times do
+  url_cocktail = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+  data = JSON.parse(open(url_cocktail).string)['drinks']
 
-list = data['drinks']
+  data_ingredients = data.first.select {|k, _| k.include? 'strIngredient'}
+  p ingredients = data_ingredients.values.reject { |e| e.to_s.empty? }
 
-list.each do |l|
-  Ingredient.create(
-    name: l['strIngredient1'])
+  data_doses = data.first.select {|k, _| k.include? 'strMeasure'}
+  p doses = data_doses.values.reject { |e| e.to_s.empty? }
+
+  p data_name = data.first["strDrink"]
+
+  cocktail1 = Cocktail.create(name: data_name)
+
+  ingredients.each_with_index do |ingredient, index|
+    i = Ingredient.create(name: ingredient)
+    d = Dose.new(description: doses[index] || 'alcool')
+    d.cocktail = cocktail1
+    d.ingredient = i
+    d.save!
+  end
 end
