@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="form">
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit %>
+  <% end %>
+  </div>
+</div>
+
+<div class="container">
+    <%= link_to "Go back to cocktails' list", cocktails_path %>
+</div>

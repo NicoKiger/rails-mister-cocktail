@@ -30,9 +30,11 @@ Ingredient.destroy_all
 
   ingredients.each_with_index do |ingredient, index|
     i = Ingredient.create(name: ingredient)
-    d = Dose.new(description: doses[index] || 'alcool')
+    d = Dose.new(description: doses[index] || 'tbc')
     d.cocktail = cocktail1
-    d.ingredient = i
-    d.save!
+    if i.id
+      d.ingredient = i
+      d.save!
+    end
   end
 end
