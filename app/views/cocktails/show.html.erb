@@ -18,32 +18,30 @@
 </div>
 
 <div class="container">
-  <div class="review">
-    <span class="fa fa-star fa-1x checked"></span>
-    <span class="fa fa-star fa-1x checked"></span>
-    <span class="fa fa-star fa-1x checked"></span>
-    <span class="fa fa-star fa-1x"></span>
-    <span class="fa fa-star fa-1x"></span>
-  </div>
-</div>
-
-<div class="container">
   <div class="card-product">
     <img src="https://images.pexels.com/photos/946118/pexels-photo-946118.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
     <div class="card-product-infos">
-      <h2>Ingredients list</h2>
+      <h2>Ingredients list | <%= link_to "🖋", new_cocktail_dose_path(@cocktail) %></h2>
       <% @cocktail.doses.each do |dose| %>
         <p><%= dose.description %> - <%= dose.ingredient.name %> | <%= link_to "🗑",
                   dose_path(dose),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %></p>
+                  data: { confirm: "Are you sure?" }, class: "link" %></p>
         <% end %>
     </div>
   </div>
 <div>
 
 <div class="container">
-  <div class="ingredient">
-    <%= link_to "Add new ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-flat" %>
+  <div class="review">
+    <h4><strong>Ratings</strong> | <%= link_to "😊", new_cocktail_review_path(@cocktail), class: "link" %>
+    </h4>
   </div>
+  <% @cocktail.reviews.each do |review| %>
+    <p>" <% @cocktail.reviews.each do |review| %>
+  <% review.rating.to_i.times do %>
+    <span class='fa fa-star fa-1x checked'></span>
+  <% end %>
+ <% end %> - <%= review.content %> "
+  <% end %>
 </div>

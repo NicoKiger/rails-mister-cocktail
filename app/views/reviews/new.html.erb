@@ -11,19 +11,19 @@
   </div>
 </div>
 
-<div class="banner" id="banner-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1189257/pexels-photo-1189257.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);">
+<div class="banner" id="banner-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1154775/pexels-photo-1154775.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);">
   <div class="banner-content" id="">
-    <h2>New ingredient</h2>
+    <h2>New review</h2>
   </div>
 </div>
+
 
 <div class="container">
   <div class="form">
-    <%= simple_form_for [ @review, @dose ] do |f| %>
+    <%= simple_form_for [ @cocktail, @review ] do |f| %>
       <%= f.input :content %>
-      <%= f.association :rating %>
-      <%= f.submit "Add a review",class: "btn btn-flat" %>
+      <%= f.input :rating %>
+      <%= f.submit "Add a review", class: "btn btn-flat" %>
     <% end %>
   </div>
 </div>
-
