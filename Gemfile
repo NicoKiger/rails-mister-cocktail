@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
