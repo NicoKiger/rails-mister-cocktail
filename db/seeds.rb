@@ -26,7 +26,9 @@ Ingredient.destroy_all
 
   p data_name = data.first["strDrink"]
 
-  cocktail1 = Cocktail.create(name: data_name)
+  p data_url = data.first["strDrinkThumb"]
+
+  cocktail1 = Cocktail.create(name: data_name, photo_url:data_url)
 
   ingredients.each_with_index do |ingredient, index|
     i = Ingredient.create(name: ingredient)
