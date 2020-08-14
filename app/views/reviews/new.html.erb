@@ -5,45 +5,25 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Go back to cocktails' list", cocktails_path, class: "nav-link" %>
+        <%= link_to "Go back to cocktail", cocktail_path(@cocktail), class: "nav-link" %>
       </li>
     </ul>
   </div>
 </div>
 
-<div class="banner" id="banner-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @cocktail.photo_url %>');">
+<div class="banner" id="banner-cocktail" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1189257/pexels-photo-1189257.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);">
   <div class="banner-content" id="">
-    <h2><%= @cocktail.name %></h2>
+    <h2>New ingredient</h2>
   </div>
 </div>
 
 <div class="container">
-  <div class="review">
-    <span class="fa fa-star fa-1x checked"></span>
-    <span class="fa fa-star fa-1x checked"></span>
-    <span class="fa fa-star fa-1x checked"></span>
-    <span class="fa fa-star fa-1x"></span>
-    <span class="fa fa-star fa-1x"></span>
+  <div class="form">
+    <%= simple_form_for [ @review, @dose ] do |f| %>
+      <%= f.input :content %>
+      <%= f.association :rating %>
+      <%= f.submit "Add a review",class: "btn btn-flat" %>
+    <% end %>
   </div>
 </div>
 
-<div class="container">
-  <div class="card-product">
-    <img src="https://images.pexels.com/photos/946118/pexels-photo-946118.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-    <div class="card-product-infos">
-      <h2>Ingredients list</h2>
-      <% @cocktail.doses.each do |dose| %>
-        <p><%= dose.description %> - <%= dose.ingredient.name %> | <%= link_to "🗑",
-                  dose_path(dose),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %></p>
-        <% end %>
-    </div>
-  </div>
-<div>
-
-<div class="container">
-  <div class="ingredient">
-    <%= link_to "Add new ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-flat" %>
-  </div>
-</div>
