@@ -1,0 +1,53 @@
+.banner {
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 400px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner h2 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner p {
+  font-size: 24px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1b6ca8;
+  transition: background 0.3s ease;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.btn-flat:hover {
+  background: #1DAB52;
+  color: white;
+}
+
+#banner-cocktail {
+  height: 250px;
+}
