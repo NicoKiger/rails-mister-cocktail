@@ -21,6 +21,7 @@
   <div class="form">
   <%= simple_form_for(@cocktail) do |f| %>
     <%= f.input :name %>
+    <%= f.input :photo_url %>
     <%= f.submit "Create your cocktail", class: "btn btn-flat" %>
   <% end %>
   </div>
